@@ -1,5 +1,7 @@
-package com.checkit.TestingPyramid.ageVeryfication;
+package com.checkit.TestingPyramid.application.ageVeryfication;
 
+import com.checkit.TestingPyramid.ageVeryfication.AgeVerification;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -24,7 +26,7 @@ class AgeVerificationTest {
     @ParameterizedTest
     @MethodSource("ageTestData")
     void isValidAge(AgeTestData ageTestData) {
-        assertEquals(AgeVerification.isValidAge(ageTestData.age()), ageTestData.expectedResult());
+        Assertions.assertEquals(AgeVerification.isValidAge(ageTestData.age()), ageTestData.expectedResult());
     }
 
     @Test

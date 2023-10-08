@@ -1,4 +1,4 @@
-package com.checkit.TestingPyramid;
+package com.checkit.TestingPyramid.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
