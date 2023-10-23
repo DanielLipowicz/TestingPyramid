@@ -2,12 +2,23 @@ package com.checkit.TestingPyramid.isItAfterNoon;
 
 import java.time.LocalDateTime;
 
+
 public class AfterNoonPoliceman {
-    public static String isItAfterNoon() {
-        LocalDateTime currentTime =LocalDateTime.now();
-        if(currentTime.getHour()>12){
+    TimeProviderInterface timeProvider;
+
+    public AfterNoonPoliceman(TimeProviderInterface timeProvider) {
+        this.timeProvider = timeProvider;
+    }
+
+    public boolean isItAfterNoon() {
+        LocalDateTime currentTime = timeProvider.now();
+        return currentTime.getHour() >= 12;
+    }
+
+    public String isItAfterNoonMessage() {
+        if (isItAfterNoon()) {
             return "yes";
-        }else{
+        } else {
             return "no";
         }
     }

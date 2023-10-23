@@ -7,8 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class IsItAfterNoonController {
+
+    AfterNoonPoliceman afterNoonPoliceman;
+
+    IsItAfterNoonController(){
+        this.afterNoonPoliceman=new AfterNoonPoliceman(new TimeProvider());
+    }
     @GetMapping("/isItAfterNoon")
     public String isItAfterNoon() {
-        return AfterNoonPoliceman.isItAfterNoon();
+        return afterNoonPoliceman.isItAfterNoonMessage();
     }
 }
